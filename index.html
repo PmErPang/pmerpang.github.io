@@ -1,313 +1,498 @@
-﻿<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>二胖 - 互联网产品经理</title>
-<meta name="description" content="要想通过专注于群体需求来设计产品真的很难，很多时候，人们都不知道自己想要什么，直到你向他们展示出自己设计的产品之后"/>
-<meta name="keywords" content="二胖,EBO,pmebo,产品经理ebo,pm二胖,产品经理二胖,互联网产品经理,pm,产品经理"/>
-<link rel="icon" type="image/icon" href="assets/images/favicon.ico">
-<script src="js/jquery.min.js"></script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卡卡的卡 - 告别平台抽成，你的门店你做主</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300,400,600");
-/* @import url("https://www.pmebo.com/css/css.css");    */
-body {
-  padding: 0;
-  margin: 0;
-}
-
-.more-pens {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  z-index: 10;
-  font-family: "Montserrat";
-  font-size: 12px;
-}
-
-a.white-mode, a.white-mode:link, a.white-mode:visited, a.white-mode:active {
-  font-family: "Montserrat";
-  font-size: 12px;
-  text-decoration: none;
-  background: #212121;
-  padding: 4px 8px;
-  color: #f7f7f7;
-}
-a.white-mode:hover, a.white-mode:link:hover, a.white-mode:visited:hover, a.white-mode:active:hover {
-  background: #edf3f8;
-  color: #212121;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  background: #000000;
-}
-
-.title {
-  z-index: 10;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  font-family: "Montserrat";
-  text-align: center;
-  width: 100%;
-}
-.title h1 {
-  position: relative;
-  color: #FFF;
-  font-weight: 100;
-  font-size: 90px;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  text-shadow: 0 0 10px #ff006c, 0 0 20px #ff006c, 0 0 30px #ff006c, 0 0 40px #ff417d, 0 0 70px #ff417d, 0 0 80px #ff417d, 0 0 100px #ff417d, 0 0 150px #ff417d;
-}
-.title h1 span {
-  font-weight: 600;
-  padding: 0;
-  margin: 0;
-  color: #FFFFFF;
-}
-.title h3 {
-  font-weight: 200;
-  font-size: 20px;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  color: #FFFFFF;
-  letter-spacing: 2px;
-}
-#link {
-    font-weight: 200;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  color: #F0F0F0;
-  letter-spacing: 2px;
-  text-decoration:none;
-}
-#oldlink {
-    font-weight: 200;
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
-  line-height: 1;
-  color: #460046;
-  letter-spacing: 2px;
-  text-decoration:none;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+  * { font-family: 'Noto Sans SC', -apple-system, sans-serif; }
+  html { scroll-behavior: smooth; }
+  .hero-gradient { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .cta-gradient { background: linear-gradient(135deg, #f97316 0%, #ef4444 100%); }
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  .pain-point { border-left: 4px solid #ef4444; }
+  .solution { border-left: 4px solid #22c55e; }
+  .number-highlight { font-size: 3.5rem; line-height: 1; }
 </style>
 </head>
-<body>
+<body class="bg-white text-gray-900">
 
-<div class="title">
+<!-- ============ 导航 ============ -->
+<nav class="fixed top-0 w-full bg-white/95 backdrop-blur border-b border-gray-100 z-50">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl font-black text-orange-500">卡卡的卡</span>
+      <span class="text-lg font-medium text-gray-700">点餐</span>
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm text-gray-600">
+      <a href="#pain" class="hover:text-orange-500 transition">为什么选我们</a>
+      <a href="#features" class="hover:text-orange-500 transition">功能介绍</a>
+      <a href="#compare" class="hover:text-orange-500 transition">对比算账</a>
+      <a href="#how" class="hover:text-orange-500 transition">怎么开始</a>
+    </div>
+    <a href="#download" class="cta-gradient text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition shadow-lg shadow-orange-500/25">
+      免费下载
+    </a>
+  </div>
+</nav>
 
-    <h1>PM.EBO</h1>
-    <h3>互 联 网 &nbsp; 产 品 经 理</h3>
-  <!--  <h3>P R O D U C T &nbsp; M A N A G E R</h3> -->
+<!-- ============ 首屏英雄区 ============ -->
+<section class="hero-gradient pt-32 pb-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-block bg-red-500/20 text-red-300 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+          ⚠️ 你的利润正在被平台吃掉
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+          每单被美团抽走<span class="text-orange-400">30%</span><br/>
+          你<span class="text-orange-400">真的赚钱</span>了吗？
+        </h1>
+        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+          一桌消费 300 块，平台拿走 90。<br/>
+          房租、人工、食材样样涨，唯独你的利润越来越少。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#download" class="cta-gradient text-white px-8 py-4 rounded-full text-lg font-bold hover:opacity-90 transition shadow-xl shadow-orange-500/30">
+            免费下载，利润归自己
+          </a>
+          <a href="#compare" class="border-2 border-white/30 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/10 transition">
+            算一笔账 →
+          </a>
+        </div>
+        <p class="text-gray-400 text-sm mt-4">
+          🔒 所有数据都保存在你自己的电脑上，不上传云端，不经过任何第三方
+        </p>
+      </div>
+      <div class="hidden md:block relative">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-6 border border-white/20">
+          <div class="bg-white rounded-xl p-4 shadow-lg">
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="text-xs text-gray-400 ml-2">顾客手机扫码看到的页面</span>
+            </div>
+            <div class="space-y-3">
+              <div class="text-sm font-bold text-gray-800 pb-2">🍽️ 老王川菜馆</div>
+              <div class="flex justify-between text-sm"><span class="text-gray-600">宫保鸡丁</span><span class="font-bold">¥32</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-600">鱼香肉丝</span><span class="font-bold">¥28</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-600">麻婆豆腐</span><span class="font-bold">¥26</span></div>
+              <div class="flex justify-between text-sm"><span class="text-gray-600">米饭 x2</span><span class="font-bold">¥6</span></div>
+              <div class="border-t border-gray-100 pt-2 flex justify-between text-sm font-bold">
+                <span>合计</span><span class="text-orange-500 text-lg">¥92</span>
+              </div>
+              <button class="w-full cta-gradient text-white py-3 rounded-lg text-sm font-bold">
+                确认下单
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<br/><br/><br/><br/>
-<a href="https://www.pmebo.com/5/" target="_blank" id="link" title="二胖的 Big Five特质潜能评估" >关于</a> &nbsp;
-<a href="https://blog.pmebo.com/product/" target="_blank" id="link" title="这些年，我主导的项目" >项目</a> &nbsp;
-<a href="https://blog.pmebo.com" target="_blank" id="link" title="工作上的事 随便写写" >博客</a> &nbsp;
-    <a href="https://www.xiaokoudai.net" target="_blank" id="link" title="产品经理素材" >素材</a> &nbsp;
-    <a href="https://hao.pmebo.com" target="_blank" id="link" title="网址收藏夹" >书包</a>
-   
+<!-- ============ 痛点区 ============ -->
+<section id="pain" class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">你被平台绑架多久了？</h2>
+    <p class="text-gray-500 text-center mb-12 text-lg">看看这些场景，是不是每天都在发生</p>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
+        <div class="text-4xl mb-4">💸</div>
+        <h3 class="text-xl font-bold mb-3">抽成高到离谱</h3>
+        <p class="text-gray-600 leading-relaxed">
+          美团抽 23%-26%，饿了么也差不多。一单 100 块抽走 25，<strong class="text-red-500">月底算账发现白干了</strong>。
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
+        <div class="text-4xl mb-4">🔒</div>
+        <h3 class="text-xl font-bold mb-3">客户不是你的</h3>
+        <p class="text-gray-600 leading-relaxed">
+          在平台接的单子，客户信息你拿不到。<strong class="text-red-500">平台一断，客户全丢</strong>。复购？想都别想。
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 card-hover shadow-sm">
+        <div class="text-4xl mb-4">📉</div>
+        <h3 class="text-xl font-bold mb-3">被迫降价竞争</h3>
+        <p class="text-gray-600 leading-relaxed">
+          平台排名靠前就得压价、做满减、打折扣。<strong class="text-red-500">不减没单，减了亏钱</strong>。两头难。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- ============ 方案区 ============ -->
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">把生意做回自己的店里</h2>
+    <p class="text-gray-500 text-center mb-12 text-lg">一套软件，装在你的电脑上，扫码点餐再也不给平台交一分钱</p>
+    
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="space-y-6">
+        <div class="solution bg-green-50 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">✅</span>
+            <div>
+              <h4 class="font-bold text-lg mb-1">零抽成，100% 利润归你</h4>
+              <p class="text-gray-600 text-sm">不管一单多少钱，我们不抽一分钱。卖多少赚多少。</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution bg-green-50 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🖥️</span>
+            <div>
+              <h4 class="font-bold text-lg mb-1">装在自己电脑上，数据自己管</h4>
+              <p class="text-gray-600 text-sm">找台闲着的电脑，装个 Docker，点一下就运行。客户数据、订单记录全在你手里。</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution bg-green-50 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🔒</span>
+            <div>
+              <h4 class="font-bold text-lg mb-1">数据100%留在你的电脑里</h4>
+              <p class="text-gray-600 text-sm">菜单、订单、会员、营业额——<strong>全部存储在你自己电脑的数据库里</strong>。没有云端、不上传、不经过任何第三方。客人隐私、经营数据，只有你知道。</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution bg-green-50 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📱</span>
+            <div>
+              <h4 class="font-bold text-lg mb-1">客人扫码点餐，服务员省下来</h4>
+              <p class="text-gray-600 text-sm">桌上贴个码，客人自己扫码点菜。连上店里WiFi秒开，服务员只管上菜和结账。店里少请一个人，一年省好几万。</p>
+            </div>
+          </div>
+        </div>
+        <div class="solution bg-green-50 rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🖨️</span>
+            <div>
+              <h4 class="font-bold text-lg mb-1">后厨自动出票，前台自动核销</h4>
+              <p class="text-gray-600 text-sm">客人下单，后厨小票机自动打印；客人结账，前台平板上一点就核销。全店联动。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hidden md:block">
+        <div class="bg-gray-900 rounded-2xl p-8 text-white">
+          <div class="text-sm text-gray-400 mb-6">店里电脑后台界面</div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between bg-gray-800 rounded-lg px-4 py-3">
+              <span class="text-green-400 text-2xl font-black">¥0</span>
+              <span class="text-gray-400 text-sm">平台抽成</span>
+            </div>
+            <div class="flex items-center justify-between bg-gray-800 rounded-lg px-4 py-3">
+              <span class="text-orange-400 text-2xl font-black">¥92</span>
+              <span class="text-gray-400 text-sm">本单收入（全部归你）</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-gray-700">
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+              <span>今日营业额</span><span class="text-white font-bold text-lg">¥3,280</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-400 mb-2">
+              <span>今日订单数</span><span class="text-white font-bold">38 单</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-400">
+              <span>今日省下平台费</span><span class="text-green-400 font-bold text-lg">¥820</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script>
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+<!-- ============ 算账对比 ============ -->
+<section id="compare" class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">算一笔实在账</h2>
+    <p class="text-gray-500 text-center mb-12 text-lg">假设你的店一天做 50 单，每单均价 120 元</p>
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- 美团 -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">📦</span>
+          <div>
+            <h3 class="font-black text-xl">用美团/饿了么</h3>
+            <p class="text-red-500 text-sm">抽成按 25% 算</p>
+          </div>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">日流水</span><span class="font-bold">50 × 120 = ¥6,000</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">平台抽成</span><span class="text-red-500 font-bold">- ¥1,500</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">满减/折扣</span><span class="text-red-500 font-bold">- ¥500</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">推广费</span><span class="text-red-500 font-bold">- ¥300</span>
+          </div>
+          <div class="flex justify-between py-3 mt-2 bg-red-50 rounded-lg px-3 -mx-3">
+            <span class="font-bold">实际到手</span>
+            <span class="text-red-500 font-black text-xl">¥3,700/天</span>
+          </div>
+          <div class="text-red-400 text-xs text-center mt-2">每天被抽走 ¥2,300</div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <span class="text-red-500 font-black text-3xl">-¥69,000</span>
+          <span class="text-gray-500 text-sm ml-2">每月被抽走</span>
+        </div>
+      </div>
 
-var particles = [];
-var microparticles = [];
+      <!-- 快卡 -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-400 relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-xs font-bold">
+          推荐
+        </div>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-3xl">🏠</span>
+          <div>
+            <h3 class="font-black text-xl">用卡卡的卡</h3>
+            <p class="text-green-500 text-sm">零抽成，月费几乎为零</p>
+          </div>
+        </div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">日流水</span><span class="font-bold">50 × 120 = ¥6,000</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">平台抽成</span><span class="text-green-500 font-bold">¥0</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">软件使用费</span><span class="text-gray-400">9.9/月起</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-gray-100">
+            <span class="text-gray-500">你的数据</span><span class="text-green-500 font-bold">🔒 全在你自己电脑</span>
+          </div>
+          <div class="flex justify-between py-3 mt-2 bg-green-50 rounded-lg px-3 -mx-3">
+            <span class="font-bold">实际到手</span>
+            <span class="text-green-500 font-black text-xl">¥6,000/天</span>
+          </div>
+          <div class="text-green-500 text-xs text-center mt-2">一分不少，全部归你</div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-gray-100 text-center">
+          <span class="text-green-500 font-black text-3xl">+¥2,300/天</span>
+          <span class="text-gray-500 text-sm ml-2">比平台多赚</span>
+        </div>
+      </div>
+    </div>
 
-var c1 = createCanvas({ width: $(window).width(), height: $(window).height() });
+    <div class="text-center mt-12">
+      <p class="text-2xl font-black text-gray-800">
+        一年下来，<span class="text-orange-500">多赚 82 万</span>
+      </p>
+      <p class="text-gray-400 text-sm mt-2">够再请 3 个服务员，或者给自己换辆车</p>
+    </div>
+  </div>
+</section>
 
-var tela = c1.canvas;
-var canvas = c1.context;
+<!-- ============ 功能一览 ============ -->
+<section id="features" class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">一个软件，撑起一家店</h2>
+    <p class="text-gray-500 text-center mb-12 text-lg">不只是餐馆——咖啡馆、花店、烘焙坊、奶茶店、文创店，通通能用</p>
 
-// $("body").append(tela);
-$("body").append(c1.canvas);
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">📋</div>
+        <h4 class="font-bold mb-2">菜单管理</h4>
+        <p class="text-gray-500 text-sm">菜品分类、价格、图片，随时改。大份小份、辣度口味，客人自己选。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">📱</div>
+        <h4 class="font-bold mb-2">扫码点餐</h4>
+        <p class="text-gray-500 text-sm">每桌一个码，客人扫了就点。连上店里WiFi秒开，老人不会用服务员帮点。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">🖨️</div>
+        <h4 class="font-bold mb-2">自动出票</h4>
+        <p class="text-gray-500 text-sm">客人下单，后厨小票机自动打印。前台、后厨、档口各打各的，不用喊。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">💰</div>
+        <h4 class="font-bold mb-2">收银核销</h4>
+        <p class="text-gray-500 text-sm">客人结账，平板上一点就关了订单。支持会员卡余额支付、现金记录。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">👥</div>
+        <h4 class="font-bold mb-2">会员管理</h4>
+        <p class="text-gray-500 text-sm">充卡送余额，会员价优惠。客户信息你拿着，发短信、打电话自己做活动。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">📅</div>
+        <h4 class="font-bold mb-2">预约订桌</h4>
+        <p class="text-gray-500 text-sm">接电话预约，选桌号、填姓名电话、写时间。平板上一看就知道哪桌被订了。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">📊</div>
+        <h4 class="font-bold mb-2">经营报表</h4>
+        <p class="text-gray-500 text-sm">每天赚多少、哪道菜卖最好、哪个时段最忙。图表一看就明白。</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 card-hover">
+        <div class="text-3xl mb-3">💳</div>
+        <h4 class="font-bold mb-2">支出记账</h4>
+        <p class="text-gray-500 text-sm">买菜、买调料、交水电，记一笔。月底自动汇总，清清楚楚。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-var Particle = function () {
-  function Particle(canvas) {
-    _classCallCheck(this, Particle);
+<!-- ============ 怎么开始 ============ -->
+<section id="how" class="py-20 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">三步开始，不懂电脑也能装</h2>
+    <p class="text-gray-400 text-center mb-12 text-lg">不需要技术员，不需要买服务器</p>
 
-    this.random = Math.random();
-    this.random1 = Math.random();
-    this.random2 = Math.random();
-    this.progress = 0;
-    this.canvas = canvas;
-    this.life = 1000 + Math.random() * 3000;
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-4">1</div>
+        <h4 class="font-bold text-lg mb-2">下载安装</h4>
+        <p class="text-gray-400 text-sm">
+          找台闲着的电脑<br/>
+          装好 Docker 客户端<br/>
+          下载我们的安装包，双击运行
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-4">2</div>
+        <h4 class="font-bold text-lg mb-2">设置菜单</h4>
+        <p class="text-gray-400 text-sm">
+          打开浏览器访问后台<br/>
+          添加菜品、设置价格<br/>
+          生成每桌的二维码，打印贴桌上
+        </p>
+      </div>
+      <div class="text-center">
+        <div class="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-4">3</div>
+        <h4 class="font-bold text-lg mb-2">开门营业</h4>
+        <p class="text-gray-400 text-sm">
+          客人坐下扫码点菜<br/>
+          后厨自动接单出票<br/>
+          月底数钱，一分不少
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    this.x = $(window).width() / 2 + (Math.random() * 20 - Math.random() * 20);
-    this.y = $(window).height();
-    this.s = 2 + Math.random();
-    this.w = $(window).width();
-    this.h = $(window).height();
-    this.direction = this.random > .5 ? -1 : 1;
-    this.radius = 1 + 3 * this.random;
-    this.color = "#ff417d";
+<!-- ============ 硬件要求 ============ -->
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-4">需要什么样的电脑？</h2>
+    <p class="text-gray-500 text-center mb-10 text-lg">找一台店里闲着的电脑就行，不用买新设备</p>
 
-    this.ID = setInterval(function () {
-      microparticles.push(new microParticle(c1.context, {
-        x: this.x,
-        y: this.y
-      }));
-    }.bind(this), this.random * 20);
+    <div class="overflow-x-auto">
+      <table class="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
+        <thead>
+          <tr class="bg-gray-100 text-left text-sm">
+            <th class="px-6 py-4 font-bold">配置等级</th>
+            <th class="px-6 py-4 font-bold">CPU</th>
+            <th class="px-6 py-4 font-bold">内存</th>
+            <th class="px-6 py-4 font-bold">硬盘</th>
+            <th class="px-6 py-4 font-bold">能带多少桌</th>
+            <th class="px-6 py-4 font-bold">适合场景</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          <tr class="border-b border-gray-100">
+            <td class="px-6 py-4">
+              <span class="inline-block bg-gray-200 text-gray-600 px-3 py-1 rounded-full text-xs font-bold">最低</span>
+            </td>
+            <td class="px-6 py-4">双核 1.5GHz+</td>
+            <td class="px-6 py-4">2GB</td>
+            <td class="px-6 py-4">5GB 剩余</td>
+            <td class="px-6 py-4"><span class="text-gray-400">≤ 10 桌</span></td>
+            <td class="px-6 py-4 text-gray-500 text-xs">试试能不能用</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="px-6 py-4">
+              <span class="inline-block bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-bold">推荐</span>
+            </td>
+            <td class="px-6 py-4">双核 2.0GHz+</td>
+            <td class="px-6 py-4 font-bold">4GB</td>
+            <td class="px-6 py-4">20GB 剩余</td>
+            <td class="px-6 py-4"><span class="text-blue-600 font-bold">≤ 30 桌</span></td>
+            <td class="px-6 py-4 text-gray-500 text-xs">日常运营</td>
+          </tr>
+          <tr class="border-b border-gray-100">
+            <td class="px-6 py-4">
+              <span class="inline-block bg-green-100 text-green-600 px-3 py-1 rounded-full text-xs font-bold">充沛</span>
+            </td>
+            <td class="px-6 py-4">四核 2.5GHz+</td>
+            <td class="px-6 py-4 font-bold">8GB</td>
+            <td class="px-6 py-4">50GB 剩余</td>
+            <td class="px-6 py-4"><span class="text-green-600 font-bold">50+ 桌</span></td>
+            <td class="px-6 py-4 text-gray-500 text-xs">高峰流畅无压力</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-    setTimeout(function () {
-      clearInterval(this.ID);
-    }.bind(this), this.life);
-  }
+    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-6 text-sm text-blue-800">
+      <p class="font-bold mb-1">💡 几点说明</p>
+      <ul class="space-y-1 text-blue-700">
+        <li>• 以上配置是<b>整台电脑</b>的要求，不是单给卡卡的卡用的。浏览器、Docker、系统本身也要用内存</li>
+        <li>• 2018 年后出厂的电脑基本都满足「推荐」配置。店里淘汰的收银机、前台的旧电脑都行</li>
+        <li>• 如果店里桌数多（30桌以上），建议用 8GB 内存的电脑，高峰期 30 个客人同时扫码也不卡</li>
+        <li>• 数据量不用担心——一天 200 单，跑满一年也才 7 万条订单，H2 数据库吃这个跟喝水一样</li>
+        <li>• 建议每天关机前备份一下（系统设置里点一下【备份数据】就成），换个 U 盘一插一拷，10 秒搞定</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  _createClass(Particle, [{
-    key: "render",
-    value: function render() {
-      this.canvas.beginPath();
-      this.canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-      // this.canvas.lineWidth = 2;
-      this.canvas.shadowOffsetX = 0;
-      this.canvas.shadowOffsetY = 0;
-      // this.canvas.shadowBlur = 6;
-      this.canvas.shadowColor = "#000000";
-      this.canvas.fillStyle = this.color;
-      this.canvas.fill();
-      this.canvas.closePath();
-    }
-  }, {
-    key: "move",
-    value: function move() {
-      this.x -= this.direction * Math.sin(this.progress / (this.random1 * 430)) * this.s;
-      this.y -= Math.cos(this.progress / this.h) * this.s;
+<!-- ============ 底部CTA ============ -->
+<section id="download" class="py-20 px-6 bg-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-black mb-4">别让平台再抽你的血汗钱</h2>
+    <p class="text-gray-500 text-lg mb-8">
+      免费试用 30 天，满意再续。<br/>
+      每月仅需 ¥9.9 起，还不够美团抽你一单的钱。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#" class="cta-gradient text-white px-10 py-5 rounded-full text-xl font-bold hover:opacity-90 transition shadow-xl shadow-orange-500/30 inline-block">
+        免费下载试用
+      </a>
+      <a href="#" class="border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-full text-xl font-medium hover:border-orange-400 hover:text-orange-500 transition inline-block">
+        联系客服咨询
+      </a>
+    </div>
+    <p class="text-gray-400 text-sm mt-6">
+      支持 Windows / 带 Docker 的 Linux 系统<br/>
+      🔒 所有数据存储在你的电脑上，不需要网络也能正常营业
+    </p>
+  </div>
+</section>
 
-      if (this.x < 0 || this.x > this.w - this.radius) {
-        clearInterval(this.ID);
-        return false;
-      }
-
-      if (this.y < 0) {
-        clearInterval(this.ID);
-        return false;
-      }
-      this.render();
-      this.progress++;
-      return true;
-    }
-  }]);
-
-  return Particle;
-}();
-
-var microParticle = function () {
-  function microParticle(canvas, options) {
-    _classCallCheck(this, microParticle);
-
-    this.random = Math.random();
-    this.random1 = Math.random();
-    this.random2 = Math.random();
-    this.progress = 0;
-    this.canvas = canvas;
-
-    this.x = options.x;
-    this.y = options.y;
-    this.s = 2 + Math.random() * 3;
-    this.w = $(window).width();
-    this.h = $(window).height();
-    this.radius = 1 + this.random * 0.5;
-    this.color = "#4EFCFE"; //this.random > .5 ? "#a9722c" : "#FFFED7"
-  }
-
-  _createClass(microParticle, [{
-    key: "render",
-    value: function render() {
-      this.canvas.beginPath();
-      this.canvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-      this.canvas.lineWidth = 2;
-      this.canvas.fillStyle = this.color;
-      this.canvas.fill();
-      this.canvas.closePath();
-    }
-  }, {
-    key: "move",
-    value: function move() {
-      this.x -= Math.sin(this.progress / (100 / (this.random1 - this.random2 * 10))) * this.s;
-      this.y += Math.cos(this.progress / this.h) * this.s;
-
-      if (this.x < 0 || this.x > this.w - this.radius) {
-        return false;
-      }
-
-      if (this.y > this.h) {
-        return false;
-      }
-      this.render();
-      this.progress++;
-      return true;
-    }
-  }]);
-
-  return microParticle;
-}();
-
-var random_life = 1000;
-
-setInterval(function () {
-  particles.push(new Particle(canvas));
-  random_life = 2000 * Math.random();
-}.bind(this), random_life);
-
-function clear() {
-  var grd = canvas.createRadialGradient(tela.width / 2, tela.height / 2, 0, tela.width / 2, tela.height / 2, tela.width);
-  grd.addColorStop(0, "rgba(82,42,114,1)");
-  grd.addColorStop(1, "rgba(26,14,4,0)");
-  // Fill with gradient
-  canvas.globalAlpha = 0.16;
-  canvas.fillStyle = grd;
-  canvas.fillRect(0, 0, tela.width, tela.height);
-}
-
-function blur(ctx, canvas, amt) {
-  // ctx.filter = `blur(${amt}px)`
-  // ctx.drawImage(canvas, 0, 0)
-  // ctx.filter = 'none'
-}
-
-function update() {
-  clear();
-  particles = particles.filter(function (p) {
-    return p.move();
-  });
-  microparticles = microparticles.filter(function (mp) {
-    return mp.move();
-  });
-  requestAnimationFrame(update.bind(this));
-}
-
-function createCanvas(properties) {
-  var canvas = document.createElement('canvas');
-  canvas.width = properties.width;
-  canvas.height = properties.height;
-  var context = canvas.getContext('2d');
-  return {
-    canvas: canvas,
-    context: context
-  };
-}
-update();</script>
-
-
+<!-- ============ 页脚 ============ -->
+<footer class="py-8 px-6 border-t border-gray-100">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+    <div class="flex items-center gap-2">
+      <span class="text-orange-500 font-black">卡卡的卡</span>点餐
+    </div>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-orange-500 transition">使用教程</a>
+      <a href="#" class="hover:text-orange-500 transition">常见问题</a>
+      <a href="#" class="hover:text-orange-500 transition">联系我们</a>
+    </div>
+    <span>让每一分利润都落回自己口袋</span>
+  </div>
+</footer>
 
 </body>
 </html>
